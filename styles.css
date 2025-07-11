@@ -23,6 +23,7 @@ body {
   color: var(--text-light);
   line-height: 1.6;
   height: 100%;
+  padding: 0rem 10rem;
 }
 
 /* --- MAIN --- */
@@ -41,10 +42,21 @@ body > header {
   top: 0;
   z-index: 10;
   transition: background-color 0.3s ease;
+  border-radius: 0px 0px 20px 20px;
+  border: 2px solid transparent;
+  border-top: none;
 }
 header.scrolled {
   background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-top: none;
+}
+header.scrolled nav a {
+  color: var(--accent-color);
+}
+header.scrolled nav a:hover {
+  color: var(--text-light);
 }
 header h1 {
   font-size: 1.8rem;
@@ -113,37 +125,37 @@ main > .container__hero {
 
 .btn__hero {
   padding: 10px 20px;
-  background-color: var(--secondary-color);
+  background-color: rgb(128, 67, 255, 0.9);
   border-radius: 10px;
   font-size: 20px;
   transition: ease 500ms;
+  border: 2px solid rgb(128, 67, 255, 0.8);
 }
 .btn__hero:hover {
-  background-color: var(--secondary-color);
+  background-color: rgb(128, 67, 255, 0.2);
   transform: translate(0px, -5px);
   cursor: pointer;
 }
 
-/* --- FEATURES ---*/
-main > .features__container {
+/* --- PROTOCOLS ---*/
+main > .protocols__container {
   padding: 1rem 5rem 5rem 5rem;
   text-align: center;
   background-color: var(--background-color);
   color: var(--black);
+  border-radius: 2rem 2rem 0px 0px;
 }
 
-.features__title {
+.protocols__title {
   font-size: 5rem;
   font-weight: 800;
   margin-bottom: 2.5rem;
   color: var(--black);
 }
-
-/* --- PROTOCOLS ---*/
 .grid__protocols {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* força 3 colunas */
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -157,8 +169,9 @@ main > .features__container {
   padding: 2rem 1rem 1.5rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
+  align-items: flex-end;
+  justify-content: space-evenly;
 }
 
 .card__protocol img {
@@ -190,6 +203,25 @@ main > .features__container {
   cursor: pointer;
 }
 
+.btn__card {
+  margin-top: 10px;
+  color: var(--text-light);
+  background-color: var(--accent-color);
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+}
+/* --- ON THE GO --- */
+.on-the-go__container {
+  text-align: center;
+  background-color: var(--background-color);
+  color: var(--black);
+}
+.on-the-go__title {
+  font-size: 5rem;
+  font-weight: 800;
+  margin-bottom: 2.5rem;
+  color: var(--black);
+}
 /* --- FOOTER ---*/
 footer {
   text-align: center;
