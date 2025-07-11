@@ -8,6 +8,7 @@
   --background-color: #f1f1f1f1;
   --black: #222222;
   --secondary-color: rgb(128, 67, 255, 0.8);
+  --border-glass: hsl(0, 0%, 100%);
 }
 /* --- RESET CSS ---*/
 * {
@@ -49,10 +50,12 @@ body > header {
 header.scrolled {
   background-color: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(8px);
-  border: 2px solid rgba(255, 255, 255, 0.9);
   border-top: none;
 }
 header.scrolled nav a {
+  color: var(--accent-color);
+}
+header.scrolled h1 {
   color: var(--accent-color);
 }
 header.scrolled nav a:hover {
@@ -61,7 +64,12 @@ header.scrolled nav a:hover {
 header h1 {
   font-size: 1.8rem;
   font-weight: 800;
-  color: var(--accent-color);
+  color: var(--text-light);
+  transition: ease 400ms;
+}
+header h1:hover {
+  color: var(--text-light);
+  cursor: pointer;
 }
 
 .logo__header {
@@ -125,15 +133,15 @@ main > .container__hero {
 
 .btn__hero {
   padding: 10px 20px;
-  background-color: rgb(128, 67, 255, 0.9);
+  background-color: rgb(13, 141, 249, 0.9);
   border-radius: 10px;
   font-size: 20px;
   transition: ease 500ms;
-  border: 2px solid rgb(128, 67, 255, 0.8);
+  border: 2px solid rgb(13, 141, 249, 0.8);
 }
 .btn__hero:hover {
-  background-color: rgb(128, 67, 255, 0.2);
-  transform: translate(0px, -5px);
+  background-color: rgb(13, 141, 249, 0.2);
+  transform: translate(0px, -3px);
   cursor: pointer;
 }
 
@@ -199,7 +207,7 @@ main > .protocols__container {
 .card__protocol:hover,
 .card__protocol:focus-within {
   transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.35);
   cursor: pointer;
 }
 
@@ -229,4 +237,46 @@ footer {
   background-color: #0b0f1a;
   font-size: 0.9rem;
   color: #6b7280;
+}
+/* --- MOUSE ANIMATION ---*/
+.mouse {
+  width: 25px;
+  height: 40px;
+  border: 2px solid var(--accent-color);
+  border-radius: 60px;
+  position: relative;
+  overflow: hidden;
+}
+.mouse::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  opacity: 1;
+  animation: wheel 1.3s infinite;
+  -webkit-animation: wheel 1.3s infinite;
+}
+@keyframes wheel {
+  to {
+    opacity: 0;
+    top: 27px;
+  }
+}
+
+@-webkit-keyframes wheel {
+  to {
+    opacity: 0;
+    top: 27px;
+  }
+}
+.home-hero__mouse-scroll-cont {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
 }
