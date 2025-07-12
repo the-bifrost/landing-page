@@ -6,3 +6,10 @@ window.addEventListener("scroll", function () {
     header.classList.remove("scrolled");
   }
 });
+const burger = document.getElementById("burger");
+const nav = document.querySelector("header nav");
+
+burger.addEventListener("click", () => {
+  burger.classList.toggle("open");
+  nav.classList.toggle("open");
+});
