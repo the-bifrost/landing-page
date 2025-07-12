@@ -44,7 +44,7 @@ body > header {
   position: sticky;
   top: 0;
   z-index: 10;
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  transition: ease 500ms;
   border-radius: 0px 0px 20px 20px;
 }
 
