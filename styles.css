@@ -26,7 +26,6 @@ body {
   color: var(--text-light);
   line-height: 1.6;
   height: 100%;
-  padding: 0rem 10rem;
 }
 
 /* --- MAIN --- */
@@ -37,7 +36,7 @@ main {
 /* --- HEADER ---*/
 body > header {
   text-decoration: none;
-  padding: 1rem 5rem;
+  padding: 1rem 10rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -87,6 +86,94 @@ header h1:hover {
   border-radius: 4px;
   font-size: 10px;
 }
+/* --- MOBILE LAYOUT HEADER E NAVBAR ---- */
+@media (max-width: 1040px) {
+  #burger {
+    display: flex;
+  }
+
+  /* CORREÇÃO PRINCIPAL PARA O BLUR */
+  header.menu-open {
+    border-radius: 0px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: var(--accent-color);
+  }
+  header.menu-open {
+    backdrop-filter: blur(8px);
+  }
+  main > header,
+  nav.open {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+  }
+  header.menu-open nav a {
+    color: var(--text-blue);
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Corrigido rgba */
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    border-left: none;
+    border-right: none;
+    padding: 1rem;
+    border-bottom: none;
+  }
+
+  header.menu-open nav a:hover {
+    color: var(--text-light);
+  }
+
+  /* CORREÇÃO PARA A NAV */
+  header nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 0 0 1rem 1rem;
+    transition: ease 500ms;
+  }
+
+  /* NAV ABERTA COM BLUR */
+  header nav.open {
+    max-height: 300px;
+    border: 2px solid transparent;
+    border-top: none;
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  header nav a {
+    font-size: 1.2rem;
+    margin: 0;
+    width: 100%;
+    text-align: right;
+    padding: 0.8rem 1.5rem;
+  }
+
+  header.scrolled nav a {
+    color: var(--accent-color);
+  }
+
+  header.scrolled nav a:hover {
+    color: var(--text-light);
+  }
+
+  /* --- ANIMACAO BURGUER --- */
+  #burger.open .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #burger.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  #burger.open .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
 
 /* --- NAVBAR ---*/
 nav a {
@@ -107,12 +194,16 @@ main > .container__hero {
   width: 100%;
   height: calc(101vh - 80px);
   display: flex;
-  padding-left: 5rem;
+  padding: 0rem 10rem;
   justify-content: center;
   flex-direction: column;
   align-items: flex-start;
 }
-
+.text__hero {
+  font-size: clamp(1rem, 3vw, 25px);
+  line-height: 30px;
+  letter-spacing: 1px;
+}
 .container__hero > .content__hero {
   position: relative;
   display: flex;
@@ -128,7 +219,9 @@ main > .container__hero {
   text-align: start;
   font-size: 3.5rem;
   font-weight: 800;
-  color: var(--text-light);
+  background: linear-gradient(90deg, var(--text-light), var(--text-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .title__hero > h2 {
@@ -150,6 +243,29 @@ main > .container__hero {
   background-color: rgba(13, 141, 249, 0.2);
   transform: translate(0px, -3px);
   cursor: pointer;
+}
+/* --- BLINKING CURSOR --- */
+#animated-text::after {
+  content: "";
+  display: inline-block;
+  transform: translateY(15%);
+  width: 3px;
+  height: 1em;
+  background: currentColor;
+  margin-right: 6px;
+  animation: blink 0.8s steps(1) infinite;
+}
+
+/* --- BLINK ANIMATION --- */
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
 }
 
 /* --- MOUSE ANIMATION ---*/
@@ -287,7 +403,6 @@ main > .protocols__container {
 .on-the-go__title {
   font-size: 5rem;
   font-weight: 800;
-  margin-bottom: 2.5rem;
   color: var(--black);
 }
 
@@ -298,11 +413,11 @@ footer {
   background-color: #0b0f1a;
   font-size: 0.9rem;
   color: #6b7280;
+  height: 20vw;
 }
 
 /* --- BURGER BASE --- */
 #burger {
-  display: none; /* escondido em desktop */
   flex-direction: column;
   gap: 5px;
   background: transparent;
@@ -318,104 +433,24 @@ footer {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* --- MOBILE LAYOUT ---- */
-@media (max-width: 1040px) {
-  #burger {
-    display: flex;
-  }
-
-  /* CORREÇÃO PRINCIPAL PARA O BLUR */
-  header.menu-open {
-    border-radius: 0px;
-    background-color: rgba(255, 255, 255, 0.7);
-    color: var(--accent-color);
-  }
-  header.menu-open {
-    backdrop-filter: blur(8px);
-  }
-  main > header,
-  nav.open {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(8px);
-  }
-  header.menu-open nav a {
-    color: var(--text-blue);
-    border: 1px solid rgba(0, 0, 0, 0.1); /* Corrigido rgba */
-    width: 100%;
-    display: flex;
-    justify-content: right;
-    border-left: none;
-    border-right: none;
-    padding: 1rem;
-    border-bottom: none;
-  }
-
-  header.menu-open nav a:hover {
-    color: var(--text-light);
-  }
-
-  /* CORREÇÃO PARA A NAV */
-  header nav {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    max-height: 0;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 0 0 1rem 1rem;
-    transition: ease 500ms;
-  }
-
-  /* NAV ABERTA COM BLUR */
-  header nav.open {
-    max-height: 300px;
-    border: 2px solid transparent;
-    border-top: none;
-    background: rgba(255, 255, 255, 0.7);
-  }
-
-  header nav a {
-    font-size: 1.2rem;
-    margin: 0;
-    width: 100%;
-    text-align: right;
-    padding: 0.8rem 1.5rem;
-  }
-
-  header.scrolled nav a {
-    color: var(--accent-color);
-  }
-
-  header.scrolled nav a:hover {
-    color: var(--text-light);
-  }
-
-  /* animação do ícone */
-  #burger.open .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  #burger.open .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  #burger.open .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-}
-
 @media (max-width: 900px) {
   body {
     padding: 0rem 2rem;
   }
 
+  /* --- HEADER ---*/
   body > header {
     padding: 1rem;
   }
 
+  /* --- HERO ---*/
+  main > .container__hero {
+    padding: 0rem;
+  }
+  .title__hero > h2 {
+    font-size: clamp(3rem, 4vw, 5rem);
+  }
+  /* --- PROTOCOLS ---*/
   .grid__protocols {
     display: flex;
     flex-direction: column;
@@ -434,15 +469,5 @@ footer {
 
   main > .protocols__container {
     padding: clamp(1rem, 2.5rem, 5rem);
-  }
-
-  main > .container__hero {
-    padding-left: 0rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .title__hero > h2 {
-    font-size: clamp(3rem, 4vw, 5rem);
   }
 }
