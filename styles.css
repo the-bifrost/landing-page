@@ -46,6 +46,7 @@ body > header {
   z-index: 10;
   transition: ease 500ms;
   border-radius: 0px 0px 20px 20px;
+  backdrop-filter: blur(8px);
 }
 
 header.scrolled {
