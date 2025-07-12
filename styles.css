@@ -8,7 +8,7 @@
   --text-blue: #2e8fff;
   --background-color: #f1f1f1f1;
   --black: #222222;
-  --secondary-color: rgb(128, 67, 255, 0.8);
+  --secondary-color: rgba(128, 67, 255, 0.8);
   --border-glass: hsl(0, 0%, 100%);
 }
 
@@ -41,26 +41,18 @@ body > header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: transparent;
   position: sticky;
   top: 0;
   z-index: 10;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
   border-radius: 0px 0px 20px 20px;
-  border: 2px solid transparent;
-  border-top: none;
 }
 
 header.scrolled {
   background-color: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(8px);
-  border-top: none;
 }
 
-header.scrolled nav a {
-  color: var(--accent-color);
-}
-
+header.scrolled nav a,
 header.scrolled h1 {
   color: var(--accent-color);
 }
@@ -72,7 +64,6 @@ header.scrolled nav a:hover {
 header h1 {
   font-size: 1.8rem;
   font-weight: 800;
-  color: var(--text-light);
   transition: ease 400ms;
 }
 
@@ -113,7 +104,7 @@ nav a:hover {
 main > .container__hero {
   position: relative;
   width: 100%;
-  height: calc(100vh - 80px);
+  height: calc(101vh - 80px);
   display: flex;
   padding-left: 5rem;
   justify-content: center;
@@ -145,17 +136,17 @@ main > .container__hero {
 
 .btn__hero {
   padding: 10px 20px;
-  background-color: rgb(13, 141, 249, 0.9);
+  background-color: rgba(13, 141, 249, 0.9);
   border-radius: 10px;
   font-size: 20px;
   transition: ease 500ms;
-  border: 2px solid rgb(13, 141, 249, 0.8);
+  border: 2px solid rgba(13, 141, 249, 0.8);
   text-decoration: none;
   color: var(--text-light);
 }
 
 .btn__hero:hover {
-  background-color: rgb(13, 141, 249, 0.2);
+  background-color: rgba(13, 141, 249, 0.2);
   transform: translate(0px, -3px);
   cursor: pointer;
 }
@@ -234,6 +225,7 @@ main > .protocols__container {
 .card__protocol {
   background: rgba(46, 143, 255, 0.05);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Suporte para Safari */
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1rem;
   padding: 2rem 1rem 1.5rem;
@@ -274,10 +266,10 @@ main > .protocols__container {
   border-radius: 5px;
   padding: 0.5rem 1rem;
   transition: ease 500ms;
-  border: 2px solid rgb(13, 141, 249, 0.8);
+  border: 2px solid rgba(13, 141, 249, 0.8);
 }
 .btn__card:hover {
-  background-color: rgb(13, 141, 249, 0.2);
+  background-color: rgba(13, 141, 249, 0.2);
   color: var(--text-blue);
   transform: translate(2px, -2px);
   cursor: pointer;
@@ -306,6 +298,7 @@ footer {
   font-size: 0.9rem;
   color: #6b7280;
 }
+
 /* --- BURGER BASE --- */
 #burger {
   display: none; /* escondido em desktop */
@@ -324,45 +317,90 @@ footer {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* --- MOBILE LAYOUT --- */
+/* --- MOBILE LAYOUT ---- */
 @media (max-width: 1040px) {
   #burger {
     display: flex;
   }
 
-  nav {
-    position: fixed;
-    top: 0;
-    right: -100%; /* fora da tela */
-    width: 70%;
-    height: 100vh;
-    background: var(--bg-dark);
+  /* CORREÇÃO PRINCIPAL PARA O BLUR */
+  header.menu-open {
+    border-radius: 0px;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: var(--accent-color);
+  }
+  header.menu-open {
+    backdrop-filter: blur(8px);
+  }
+  main > header,
+  nav.open {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px);
+  }
+  header.menu-open nav a {
+    color: var(--text-blue);
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Corrigido rgba */
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    border-left: none;
+    border-right: none;
+    padding: 1rem;
+    border-bottom: none;
+  }
+
+  header.menu-open nav a:hover {
+    color: var(--text-light);
+  }
+
+  /* CORREÇÃO PARA A NAV */
+  header nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    transition: right 0.4s ease;
+    border-radius: 0 0 1rem 1rem;
+    transition: ease 500ms;
   }
 
-  nav.open {
-    right: 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 2rem;
+  /* NAV ABERTA COM BLUR */
+  header nav.open {
+    max-height: 300px;
+    border: 2px solid transparent;
+    border-top: none;
+    background: rgba(255, 255, 255, 0.7);
   }
 
-  nav a {
+  header nav a {
     font-size: 1.2rem;
     margin: 0;
+    width: 100%;
+    text-align: right;
+    padding: 0.8rem 1.5rem;
   }
-  /* animação X */
+
+  header.scrolled nav a {
+    color: var(--accent-color);
+  }
+
+  header.scrolled nav a:hover {
+    color: var(--text-light);
+  }
+
+  /* animação do ícone */
   #burger.open .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
+
   #burger.open .bar:nth-child(2) {
     opacity: 0;
   }
+
   #burger.open .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
@@ -372,29 +410,36 @@ footer {
   body {
     padding: 0rem 2rem;
   }
+
   body > header {
     padding: 1rem;
   }
+
   .grid__protocols {
     display: flex;
     flex-direction: column;
   }
+
   .protocols__title {
     font-size: clamp(1rem, 2.5rem, 5rem);
     margin-bottom: 2.5rem;
   }
+
   .card__protocol {
     margin: 0 auto;
     width: 100%;
     max-width: 400px;
   }
+
   main > .protocols__container {
     padding: clamp(1rem, 2.5rem, 5rem);
   }
+
   main > .container__hero {
     padding-left: 0rem;
   }
 }
+
 @media (max-width: 600px) {
   .title__hero > h2 {
     font-size: clamp(3rem, 4vw, 5rem);
