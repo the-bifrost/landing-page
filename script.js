@@ -64,7 +64,6 @@ function initTypingEffect(
 document.addEventListener("DOMContentLoaded", () => {
   initTypingEffect("animated-text", [
     "Devices", // substitui Connections
-    "Protocols",
     "Possibilities",
   ]);
 });
