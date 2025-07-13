@@ -340,7 +340,7 @@ main > .protocols__container {
 
 /* --- CARDS --- */
 .card__protocol {
-  background: rgba(46, 143, 255, 0.05);
+  background: #ffffff;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px); /* Suporte para Safari */
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -407,13 +407,106 @@ main > .protocols__container {
 }
 
 /* --- FOOTER ---*/
-footer {
-  text-align: center;
-  padding: 2rem;
-  background-color: #0b0f1a;
+.footer {
+  background: var(--bg-gradient); /* fundo escuro elegante */
+  color: var(--background-color); /* cinza‑claro neutro */
+  padding: 3rem 1rem 1rem;
+  font-size: 0.95rem;
+}
+
+.footer__inner {
+  display: grid;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  justify-items: center;
+}
+
+.footer__brand {
+  max-width: 240px;
+}
+.footer__logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+.footer__tagline {
   font-size: 0.9rem;
-  color: #6b7280;
-  height: 20vw;
+  color: #9ca3af;
+}
+
+.footer__nav h4,
+.footer__contact h4 {
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  color: #c5c5c5;
+}
+.footer__nav ul,
+.social {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.footer__nav li {
+  margin: 0.35rem 0;
+}
+.footer__nav a {
+  color: #b4b4b4;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer__nav a:hover {
+  color: var(--text-blue);
+}
+
+/* Social icons */
+.social {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+.social a {
+  font-size: 1.2rem;
+  color: var(--background-color);
+  transition: color 0.2s;
+}
+.social a:hover {
+  color: var(--text-blue);
+}
+
+.footer address {
+  font-style: normal;
+  line-height: 1.4;
+  color: #9ca3af;
+}
+
+/* bottom bar */
+.footer__bottom {
+  border-top: 1px solid var(--bg-dark);
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #f8f8f869;
+}
+.footer__status {
+  font-style: italic;
+}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 480px) {
+  .footer {
+    text-align: center;
+  }
+  .social {
+    justify-content: center;
+  }
+  .footer__inner {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* --- BURGER BASE --- */

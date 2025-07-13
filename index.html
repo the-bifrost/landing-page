@@ -5,8 +5,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bifrost</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://i.ibb.co/F4mK31Cg/Bifrost-Ideia-3.png" type="image/x-icon" <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -107,9 +111,62 @@
 
     </main>
 
-    <footer>
-        <p>© 2025 Bifrost Project. Todos os direitos reservados.</p>
+    <footer class="footer">
+        <div class="footer__inner">
+            <!-- Brand -->
+            <div class="footer__brand">
+                <img src="https://i.ibb.co/F4mK31Cg/Bifrost-Ideia-3.png" alt="Bifrost logo" class="footer__logo">
+            </div>
+
+            <!-- Quick links -->
+            <nav class="footer__nav">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#how-it-works">How&nbsp;it&nbsp;Works</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://github.com/the-bifrost" target="_blank" rel="noopener">GitHub</a></li>
+                </ul>
+            </nav>
+
+            <!-- Protocol docs -->
+            <nav class="footer__nav">
+                <h4>Protocols</h4>
+                <ul>
+                    <li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp-now.html"
+                            target="_blank">ESP-NOW</a></li>
+                    <li><a href="https://mqtt.org/documentation" target="_blank">MQTT</a></li>
+                    <li><a href="https://lora-alliance.org" target="_blank">LoRa</a></li>
+                    <li><a href="https://zigbeealliance.org" target="_blank">Zigbee</a></li>
+                </ul>
+            </nav>
+
+            <!-- Social + contact -->
+            <div class="footer__contact">
+                <h4>Connect</h4>
+                <ul class="social">
+                    <li><a href="https://twitter.com/yourhandle" aria-label="Twitter"><i
+                                class="fa-brands fa-x-twitter"></i></a></li>
+                    <li><a href="https://linkedin.com/company/yourcompany" aria-label="LinkedIn"><i
+                                class="fa-brands fa-linkedin-in"></i></a></li>
+                    <li><a href="mailto:contact@bifrost.io" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    </li>
+                </ul>
+                <address>
+                    <span>Bifrost Labs</span><br>
+                    Horizontina · Rio Grande do Sul · Brazil
+                </address>
+            </div>
+        </div>
+
+        <!-- bottom bar -->
+        <div class="footer__bottom">
+            <span>© 2025 Bifrost — MIT License</span>
+            <span class="footer__status">🚧 In active development</span>
+        </div>
     </footer>
+
     <script src="script.js"> </script>
 </body>
 
