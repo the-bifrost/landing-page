@@ -624,6 +624,8 @@ main > .protocols__container {
   justify-content: space-between;
   font-size: 0.85rem;
   color: #f8f8f869;
+  flex-direction: column;
+  align-items: center;
 }
 .footer__status {
   font-style: italic;
