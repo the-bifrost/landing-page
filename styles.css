@@ -527,18 +527,14 @@ main > .protocols__container {
 }
 
 @media (max-width: 900px) {
-  body {
-    padding: 0rem 2rem;
-  }
-
   /* --- HEADER ---*/
   body > header {
-    padding: 1rem;
+    padding: 1rem 2rem;
   }
 
   /* --- HERO ---*/
   main > .container__hero {
-    padding: 0rem;
+    padding: 0rem 2rem;
   }
   .title__hero > h2 {
     font-size: clamp(3rem, 4vw, 5rem);
