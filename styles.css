@@ -422,8 +422,10 @@ nav a:hover::after {
 
 /* Protocols Section */
 .protocols__container {
-  padding: 120px 10%;
-  background-color: var(--dark-color);
+  padding: 1rem 5rem 5rem 5rem;
+  text-align: center;
+  background-color: var(--bg-dark);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='104' viewBox='0 0 120 104' fill='none' stroke='%23ffffff' stroke-opacity='0.06' stroke-width='1'><path d='M60 1 90 18 90 52 60 69 30 52 30 18Z'/><path d='M0 35 30 18 60 35 60 69 30 86 0 69Z'/><path d='M60 35 90 18 120 35 120 69 90 86 60 69Z'/></svg>");
 }
 
 .protocols__title {
