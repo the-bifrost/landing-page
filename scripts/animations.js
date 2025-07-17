@@ -31,6 +31,15 @@ function animateFadeIn(elementClass) {
     },
   });
 }
+// Função para animação de fade-in do header
+function animateFadeInHeader() {
+  gsap.to("header", {
+    opacity: 1,
+    duration: 1,
+    delay: 2,
+    ease: "power3.out",
+  });
+}
 
 // Função para animação de escala
 function animateScaleIncrease(elementClass) {
@@ -173,6 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Hero section
   animateScaleIncrease(".content__hero");
   animateFadeIn(".text__hero");
+  animateFadeInHeader("header");
   animateFadeIn(".btn__hero");
 
   // Vision section
@@ -189,4 +199,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Background animations
   animateBackgroundElements();
+  animateTimelineProgress();
+
+  // Atualizar posições quando a janela for redimensionada
+  window.addEventListener("resize", animateTimelineProgress);
+
+  // Glow Effect
+  setupCardGlowEffect();
 });
+
+//ANIMACAO DA BOLINHA DAS TIMELINE
+function animateTimelineProgress() {
+  const timeline = document.querySelector(".timeline");
+  const progressDot = document.querySelector(".timeline-progress-dot");
+  const milestones = document.querySelectorAll(".milestone");
+
+  if (!timeline || !progressDot || milestones.length < 2) return;
+
+  // Configurar posição inicial
+  gsap.set(progressDot, {
+    top: milestones[0].offsetTop + milestones[0].offsetHeight / 2,
+  });
+
+  // Calcular posição final (penúltimo milestone)
+  const targetMilestone = milestones[milestones.length - 2];
+  const finalY = targetMilestone.offsetTop + targetMilestone.offsetHeight / 2;
+
+  // Criar animação principal
+  gsap.to(progressDot, {
+    top: finalY,
+    ease: "none",
+    scrollTrigger: {
+      trigger: timeline,
+      start: "top 30%",
+      end: `+=${timeline.offsetHeight * 0.4}`,
+      scrub: 1,
+      onUpdate: (self) => {
+        // Parar no penúltimo item
+        if (self.progress > 1) {
+          gsap.set(progressDot, { top: finalY });
+        }
+      },
+    },
+  });
+}
