@@ -244,7 +244,7 @@ function animateTimelineProgress() {
   });
 }
 
-//TESTE GLOW
+//Protocols Glow Cursor Tracker
 document.querySelectorAll(".card__protocol").forEach((card) => {
   card.addEventListener("mousemove", (e) => {
     const rect = card.getBoundingClientRect();
@@ -253,4 +253,36 @@ document.querySelectorAll(".card__protocol").forEach((card) => {
     card.style.setProperty("--mouse-x", `${x}%`);
     card.style.setProperty("--mouse-y", `${y}%`);
   });
+});
+
+//Hero Glow Cursor Tracker
+document.querySelectorAll(".container__hero").forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty("--mouse-x", `${x}%`);
+    card.style.setProperty("--mouse-y", `${y}%`);
+  });
+});
+
+//ANIMACAO BOLAS HERO
+// Anima a primeira bola
+gsap.to(".bg-1", {
+  x: 500,
+  y: 900,
+  duration: 1,
+  repeat: -1,
+  yoyo: true,
+  ease: "sine.inOut",
+});
+
+// Anima a segunda bola
+gsap.to(".bg-2", {
+  x: -300,
+  y: -120,
+  duration: 9,
+  repeat: -1,
+  yoyo: true,
+  ease: "sine.inOut",
 });

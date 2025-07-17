@@ -155,6 +155,12 @@ nav a:hover::after {
   padding: 0 10%;
   position: relative;
   overflow: hidden;
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(52, 152, 219, 0.1),
+    transparent 30%
+  );
+  transition: background 0.2s ease;
 }
 
 .content__hero {
@@ -771,40 +777,37 @@ address {
 }
 
 /* Background Elements */
+
 .bg-elements {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none;
-  z-index: 0;
+  z-index: -1;
   overflow: hidden;
 }
 
-.bg-element {
+.bg-elements span {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.2;
+  filter: blur(120px);
+  opacity: 0.4;
 }
 
 .bg-1 {
   width: 400px;
   height: 400px;
   background: var(--gradient-start);
-  top: -100px;
-  right: -100px;
+  top: 50px;
+  left: 50px;
 }
 
 .bg-2 {
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
   background: var(--accent-color);
-  bottom: -200px;
-  left: -150px;
+  bottom: 30px;
+  right: 50px;
 }
-
 /* Responsividade */
 @media (max-width: 992px) {
   .vision-timeline {
@@ -826,6 +829,9 @@ address {
 }
 
 @media (max-width: 824px) {
+  .protocols__container {
+    padding: 1rem 1rem 5rem 1rem;
+  }
   nav {
     display: flex;
     flex-direction: column;
