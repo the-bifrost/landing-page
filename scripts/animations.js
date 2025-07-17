@@ -257,13 +257,29 @@ document.querySelectorAll(".card__protocol").forEach((card) => {
 
 //Hero Glow Cursor Tracker
 document.querySelectorAll(".container__hero").forEach((card) => {
+  let mouseX = 50;
+  let mouseY = 50;
+  let targetX = 50;
+  let targetY = 50;
+
   card.addEventListener("mousemove", (e) => {
     const rect = card.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    card.style.setProperty("--mouse-x", `${x}%`);
-    card.style.setProperty("--mouse-y", `${y}%`);
+    targetX = ((e.clientX - rect.left) / rect.width) * 100;
+    targetY = ((e.clientY - rect.top) / rect.height) * 100;
   });
+
+  function animate() {
+    // Interpola suavemente a posição atual em direção à posição alvo
+    mouseX += (targetX - mouseX) * 0.09;
+    mouseY += (targetY - mouseY) * 0.09;
+
+    card.style.setProperty("--mouse-x", `${mouseX}%`);
+    card.style.setProperty("--mouse-y", `${mouseY}%`);
+
+    requestAnimationFrame(animate);
+  }
+
+  animate(); // inicia a animação contínua
 });
 
 //ANIMACAO BOLAS HERO

@@ -797,7 +797,7 @@ address {
   opacity: 0.4;
 }
 
-.bg-1 {
+.bg-2 {
   width: 400px;
   height: 400px;
   background: var(--gradient-start);
@@ -805,7 +805,7 @@ address {
   left: 50px;
 }
 
-.bg-2 {
+.bg-1 {
   width: 500px;
   height: 500px;
   background: var(--accent-color);
@@ -833,6 +833,21 @@ address {
 }
 
 @media (max-width: 824px) {
+  .bg-2 {
+    width: 200px;
+    height: 200px;
+    background: var(--gradient-start);
+    top: 50px;
+    left: 50px;
+  }
+
+  .bg-1 {
+    width: 200px;
+    height: 200px;
+    background: var(--accent-color);
+    bottom: 30px;
+    right: 50px;
+  }
   .protocols__container {
     padding: 1rem 1rem 5rem 1rem;
   }
