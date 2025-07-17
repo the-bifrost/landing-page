@@ -28,3 +28,23 @@ document.addEventListener("DOMContentLoaded", function () {
     handleScroll();
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const originalContent = document.body.innerHTML;
+  document.body.innerHTML = `
+      <div id="smooth-wrapper">
+        <div id="smooth-content">
+          ${originalContent}
+        </div>
+      </div>
+    `;
+
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+  ScrollSmoother.create({
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
+    smooth: 1.25,
+    effects: true,
+  });
+});

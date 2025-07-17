@@ -19,6 +19,14 @@
   display: none; /* Chrome, Safari e Opera */
   width: 0px;
 }
+#smooth-wrapper {
+  height: 100%;
+  overflow: hidden;
+}
+
+#smooth-content {
+  will-change: transform;
+}
 
 body {
   font-family: "Inter", sans-serif;
@@ -29,7 +37,7 @@ body {
 }
 
 /* Header */
-body > header {
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;

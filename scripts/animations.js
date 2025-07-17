@@ -1,6 +1,5 @@
 // Registrar o plugin ScrollTrigger
-gsap.registerPlugin(ScrollTrigger);
-
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 // Função para animar elementos vindo da esquerda
 function animateFromLeft(elementClass) {
   gsap.from(elementClass, {
