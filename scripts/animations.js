@@ -271,7 +271,7 @@ document.querySelectorAll(".container__hero").forEach((card) => {
 gsap.to(".bg-1", {
   x: 500,
   y: 900,
-  duration: 1,
+  duration: 6,
   repeat: -1,
   yoyo: true,
   ease: "sine.inOut",
