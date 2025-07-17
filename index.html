@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <!-- ScrollSmoother requires ScrollTrigger -->
@@ -18,232 +19,242 @@
 </head>
 
 <body>
-    <!-- Background Elements -->
-    <div class="bg-elements">
-        <span class="bg-element bg-1"></span>
-        <span class="bg-element bg-2"></span>
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <!-- Background Elements -->
+            <div class="bg-elements">
+                <span class="bg-element bg-1"></span>
+                <span class="bg-element bg-2"></span>
+            </div>
+
+            <header>
+                <div class="logo__header">
+                    <h1>Bifrost</h1>
+                    <p>Pre-alpha</p>
+                </div>
+                <button id="burger" aria-label="Open menu">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+                <nav class="navbar">
+                    <a href="#">Getting Started</a>
+                    <a href="https://github.com/the-bifrost">Documentation</a>
+                    <a href="https://github.com/the-bifrost">GitHub</a>
+                    <a href="#">Contact</a>
+                </nav>
+            </header>
+
+            <main>
+                <section class="container__hero">
+                    <div class="content__hero">
+                        <div class="title__hero">
+                            <h2>One Bridge <br> Infinite <span id="animated-text" class="gradient-text"></span></h2>
+                        </div>
+                        <p class="text__hero">Open-source communication bridge for IoT devices. <br> Built
+                            to unify protocols
+                            and expand
+                            connectivity.
+                        </p>
+                        <a href="https://github.com/the-bifrost" class="btn__hero">See more!</a>
+                    </div>
+                    <div class="home-hero__mouse-scroll-cont">
+                        <div class="mouse"></div>
+                    </div>
+                </section>
+                <section class="vision-timeline">
+
+                    <!-- LEFT COLUMN – Vision -->
+                    <div class="vision">
+                        <h2>Our vision</h2>
+                        <p class="subtitle">
+                            Connecting every device,<br />
+                            across every protocol,<br />
+                            with one open bridge.
+                        </p>
+                    </div>
+
+                    <!-- RIGHT COLUMN – Timeline -->
+                    <div class="timeline">
+                        <!-- single milestone -->
+                        <div class="timeline-progress-dot"></div>
+                        <div class="milestone">
+                            <span class="milestone__date">May 2024</span>
+                            <h3 class="milestone__title">Born from a real need</h3>
+                            <p class="milestone__desc">
+                                While working on a home automation project, we needed to connect several ESP boards
+                                communicating via ESP-NOW to an MQTT network. From this challenge, the concept of a
+                                universal
+                                bridge—Bifrost—was born.
+                            </p>
+                        </div>
+
+                        <div class="milestone">
+                            <span class="milestone__date">July 2024</span>
+                            <h3 class="milestone__title">First attempts and early code</h3>
+                            <p class="milestone__desc">
+                                The first prototype was a simple script aiming to bridge ESP-NOW and MQTT. Although it
+                                didn’t
+                                work as expected, it marked the beginning of Bifrost’s development and helped us
+                                identify
+                                key
+                                technical challenges.
+                            </p>
+                        </div>
+
+
+                        <div class="milestone">
+                            <span class="milestone__date">May 2025</span>
+                            <h3 class="milestone__title">Project revival</h3>
+                            <p class="milestone__desc">
+                                After months on hold, Bifrost was revived with the opportunity to be showcased at our
+                                university's Research Expo. This milestone brought new motivation and led to major
+                                improvements
+                                in the project.
+                            </p>
+                        </div>
+
+
+                        <div class="milestone">
+                            <span class="milestone__date">June 2025</span>
+                            <h3 class="milestone__title">Functional prototype with Raspberry Pi</h3>
+                            <p class="milestone__desc">
+                                First working prototype integrates an ESP32 and a Raspberry Pi via serial. This enabled
+                                data
+                                processing, database storage, and reliable bridging between ESP-NOW and MQTT.
+                            </p>
+                        </div>
+
+
+                        <div class="milestone future">
+                            <span class="milestone__date">Future</span>
+                            <h3 class="milestone__title">Unified gateway & full protocol mesh</h3>
+                            <p class="milestone__desc">
+                                Our goal is to build a seamless gateway combining LoRa, Zigbee, ESP-NOW, and
+                                MQTT—enabling
+                                two-way communication across protocols, local automation, and complete data control with
+                                an
+                                integrated database.
+                            </p>
+                        </div>
+
+                    </div>
+                </section>
+                <section class="protocols__container">
+                    <h2 class="protocols__title">Protocols</h2>
+
+                    <div class="grid__protocols">
+
+                        <!-- ESP-NOW -->
+                        <article class="card__protocol">
+                            <header class="card__header">
+                                <img src="https://camo.githubusercontent.com/cccdf0eaab8b94b1bd5aee1c4b77b1045a2390d839ecd33f068b274f4824f0bc/68747470733a2f2f676e64746f7663632e686f6d652e626c6f672f77702d636f6e74656e742f75706c6f6164732f323032302f30342f322e312d312e706e673f773d363430"
+                                    alt="ESP-NOW logo" />
+                                <h3>ESP-NOW</h3>
+                            </header>
+                            <p>A protocol developed by Espressif for direct device-to-device communication over Wi-Fi,
+                                without
+                                the need for routers. Ideal for fast mesh networks with low power consumption.</p>
+                            <a class="btn__card">See more!</a>
+                        </article>
+
+                        <!-- MQTT -->
+                        <article class="card__protocol">
+                            <header class="card__header">
+                                <img src="https://github.com/mqtt/mqttorg-graphics/blob/master/png/mqtt-icon-transparent.png?raw=true"
+                                    alt="MQTT logo" />
+                                <h3>MQTT</h3>
+                            </header>
+                            <p>A lightweight publish/subscribe protocol designed for IoT. It uses a broker to manage and
+                                route
+                                messages between connected devices efficiently.</p>
+                            <a class="btn__card">See more!</a>
+                        </article>
+
+                        <!-- LoRa -->
+                        <article class="card__protocol">
+                            <header class="card__header">
+                                <img src="https://camo.githubusercontent.com/e50a038a615d9b37a01b2998da776873e4aa5c5c8375f9cac092a1d7e559921f/68747470733a2f2f756361726563646e2e636f6d2f38613562373661372d353936392d343363392d623630652d6465386436323832346430392f6c6f72612532306c6f676f25323077686974652532307472616e73706172656e742e737667"
+                                    alt="LoRa logo" />
+                                <h3>LoRa</h3>
+                            </header>
+                            <p>A long-range, low-power communication protocol perfect for remote areas. Commonly used in
+                                telemetry, environmental monitoring, and precision agriculture.</p>
+                            <a class="btn__card">See more!</a>
+                        </article>
+
+                        <!-- Zigbee -->
+                        <article class="card__protocol">
+                            <header class="card__header">
+                                <img src="https://camo.githubusercontent.com/0fb52b62b1946d61c79190e14f047d7aebd8119f0596f4d8a937fb3eaaf509cb/68747470733a2f2f696d672e69636f6e73382e636f6d2f3f73697a653d3531322669643d383031363826666f726d61743d706e67"
+                                    alt="Zigbee logo" />
+                                <h3>Zigbee</h3>
+                            </header>
+                            <p>A short-range mesh network protocol based on the IEEE 802.15.4 standard. Widely used in
+                                smart
+                                home automation and energy-efficient smart devices.</p>
+                            <a class="btn__card">See more!</a>
+                        </article>
+
+                    </div>
+                </section>
+            </main>
+
+            <footer class="footer">
+                <div class="footer__inner">
+                    <div class="footer__brand">
+                        <img src="https://i.ibb.co/F4mK31Cg/Bifrost-Ideia-3.png" alt="Bifrost logo"
+                            class="footer__logo">
+                    </div>
+
+                    <nav class="footer__nav">
+                        <h4>Explore</h4>
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#how-it-works">How&nbsp;it&nbsp;Works</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                            <li><a href="https://github.com/the-bifrost" target="_blank" rel="noopener">GitHub</a></li>
+                        </ul>
+                    </nav>
+
+                    <nav class="footer__nav">
+                        <h4>Protocols</h4>
+                        <ul>
+                            <li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp-now.html"
+                                    target="_blank">ESP-NOW</a></li>
+                            <li><a href="https://mqtt.org/documentation" target="_blank">MQTT</a></li>
+                            <li><a href="https://lora-alliance.org" target="_blank">LoRa</a></li>
+                            <li><a href="https://zigbeealliance.org" target="_blank">Zigbee</a></li>
+                        </ul>
+                    </nav>
+
+                    <div class="footer__contact">
+                        <h4>Connect</h4>
+                        <ul class="social">
+                            <li><a href="https://twitter.com/yourhandle" aria-label="Twitter"><i
+                                        class="fa-brands fa-x-twitter"></i></a></li>
+                            <li><a href="https://linkedin.com/company/yourcompany" aria-label="LinkedIn"><i
+                                        class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a href="mailto:contact@bifrost.io" aria-label="Email"><i
+                                        class="fa-solid fa-envelope"></i></a>
+                            </li>
+                        </ul>
+                        <address>
+                            <span>Bifrost Labs</span><br>
+                            Horizontina · Rio Grande do Sul · Brazil
+                        </address>
+                    </div>
+                </div>
+
+                <div class="footer__bottom">
+                    <span>© 2025 Bifrost — MIT License</span>
+                    <span class="footer__status">🚧 In active development</span>
+                </div>
+            </footer>
+
+            <script src="scripts/script.js"></script>
+            <script src="scripts/animations.js"></script>
+        </div>
     </div>
-
-    <header>
-        <div class="logo__header">
-            <h1>Bifrost</h1>
-            <p>Pre-alpha</p>
-        </div>
-        <button id="burger" aria-label="Open menu">
-            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </button>
-        <nav class="navbar">
-            <a href="#">Getting Started</a>
-            <a href="https://github.com/the-bifrost">Documentation</a>
-            <a href="https://github.com/the-bifrost">GitHub</a>
-            <a href="#">Contact</a>
-        </nav>
-    </header>
-
-    <main>
-        <section class="container__hero">
-            <div class="content__hero">
-                <div class="title__hero">
-                    <h2>One Bridge <br> Infinite <span id="animated-text" class="gradient-text"></span></h2>
-                </div>
-                <p class="text__hero">Open-source communication bridge for IoT devices. <br> Built
-                    to unify protocols
-                    and expand
-                    connectivity.
-                </p>
-                <a href="https://github.com/the-bifrost" class="btn__hero">See more!</a>
-            </div>
-            <div class="home-hero__mouse-scroll-cont">
-                <div class="mouse"></div>
-            </div>
-        </section>
-        <section class="vision-timeline">
-
-            <!-- LEFT COLUMN – Vision -->
-            <div class="vision">
-                <h2>Our vision</h2>
-                <p class="subtitle">
-                    Connecting every device,<br />
-                    across every protocol,<br />
-                    with one open bridge.
-                </p>
-            </div>
-
-            <!-- RIGHT COLUMN – Timeline -->
-            <div class="timeline">
-                <!-- single milestone -->
-                <div class="timeline-progress-dot"></div>
-                <div class="milestone">
-                    <span class="milestone__date">May 2024</span>
-                    <h3 class="milestone__title">Born from a real need</h3>
-                    <p class="milestone__desc">
-                        While working on a home automation project, we needed to connect several ESP boards
-                        communicating via ESP-NOW to an MQTT network. From this challenge, the concept of a
-                        universal
-                        bridge—Bifrost—was born.
-                    </p>
-                </div>
-
-                <div class="milestone">
-                    <span class="milestone__date">July 2024</span>
-                    <h3 class="milestone__title">First attempts and early code</h3>
-                    <p class="milestone__desc">
-                        The first prototype was a simple script aiming to bridge ESP-NOW and MQTT. Although it
-                        didn’t
-                        work as expected, it marked the beginning of Bifrost’s development and helped us identify
-                        key
-                        technical challenges.
-                    </p>
-                </div>
-
-
-                <div class="milestone">
-                    <span class="milestone__date">May 2025</span>
-                    <h3 class="milestone__title">Project revival</h3>
-                    <p class="milestone__desc">
-                        After months on hold, Bifrost was revived with the opportunity to be showcased at our
-                        university's Research Expo. This milestone brought new motivation and led to major
-                        improvements
-                        in the project.
-                    </p>
-                </div>
-
-
-                <div class="milestone">
-                    <span class="milestone__date">June 2025</span>
-                    <h3 class="milestone__title">Functional prototype with Raspberry Pi</h3>
-                    <p class="milestone__desc">
-                        First working prototype integrates an ESP32 and a Raspberry Pi via serial. This enabled data
-                        processing, database storage, and reliable bridging between ESP-NOW and MQTT.
-                    </p>
-                </div>
-
-
-                <div class="milestone future">
-                    <span class="milestone__date">Future</span>
-                    <h3 class="milestone__title">Unified gateway & full protocol mesh</h3>
-                    <p class="milestone__desc">
-                        Our goal is to build a seamless gateway combining LoRa, Zigbee, ESP-NOW, and MQTT—enabling
-                        two-way communication across protocols, local automation, and complete data control with an
-                        integrated database.
-                    </p>
-                </div>
-
-            </div>
-        </section>
-        <section class="protocols__container">
-            <h2 class="protocols__title">Protocols</h2>
-
-            <div class="grid__protocols">
-
-                <!-- ESP-NOW -->
-                <article class="card__protocol">
-                    <header class="card__header">
-                        <img src="https://camo.githubusercontent.com/cccdf0eaab8b94b1bd5aee1c4b77b1045a2390d839ecd33f068b274f4824f0bc/68747470733a2f2f676e64746f7663632e686f6d652e626c6f672f77702d636f6e74656e742f75706c6f6164732f323032302f30342f322e312d312e706e673f773d363430"
-                            alt="ESP-NOW logo" />
-                        <h3>ESP-NOW</h3>
-                    </header>
-                    <p>A protocol developed by Espressif for direct device-to-device communication over Wi-Fi,
-                        without
-                        the need for routers. Ideal for fast mesh networks with low power consumption.</p>
-                    <a class="btn__card">See more!</a>
-                </article>
-
-                <!-- MQTT -->
-                <article class="card__protocol">
-                    <header class="card__header">
-                        <img src="https://github.com/mqtt/mqttorg-graphics/blob/master/png/mqtt-icon-transparent.png?raw=true"
-                            alt="MQTT logo" />
-                        <h3>MQTT</h3>
-                    </header>
-                    <p>A lightweight publish/subscribe protocol designed for IoT. It uses a broker to manage and
-                        route
-                        messages between connected devices efficiently.</p>
-                    <a class="btn__card">See more!</a>
-                </article>
-
-                <!-- LoRa -->
-                <article class="card__protocol">
-                    <header class="card__header">
-                        <img src="https://camo.githubusercontent.com/e50a038a615d9b37a01b2998da776873e4aa5c5c8375f9cac092a1d7e559921f/68747470733a2f2f756361726563646e2e636f6d2f38613562373661372d353936392d343363392d623630652d6465386436323832346430392f6c6f72612532306c6f676f25323077686974652532307472616e73706172656e742e737667"
-                            alt="LoRa logo" />
-                        <h3>LoRa</h3>
-                    </header>
-                    <p>A long-range, low-power communication protocol perfect for remote areas. Commonly used in
-                        telemetry, environmental monitoring, and precision agriculture.</p>
-                    <a class="btn__card">See more!</a>
-                </article>
-
-                <!-- Zigbee -->
-                <article class="card__protocol">
-                    <header class="card__header">
-                        <img src="https://camo.githubusercontent.com/0fb52b62b1946d61c79190e14f047d7aebd8119f0596f4d8a937fb3eaaf509cb/68747470733a2f2f696d672e69636f6e73382e636f6d2f3f73697a653d3531322669643d383031363826666f726d61743d706e67"
-                            alt="Zigbee logo" />
-                        <h3>Zigbee</h3>
-                    </header>
-                    <p>A short-range mesh network protocol based on the IEEE 802.15.4 standard. Widely used in smart
-                        home automation and energy-efficient smart devices.</p>
-                    <a class="btn__card">See more!</a>
-                </article>
-
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="footer__inner">
-            <div class="footer__brand">
-                <img src="https://i.ibb.co/F4mK31Cg/Bifrost-Ideia-3.png" alt="Bifrost logo" class="footer__logo">
-            </div>
-
-            <nav class="footer__nav">
-                <h4>Explore</h4>
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#how-it-works">How&nbsp;it&nbsp;Works</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="https://github.com/the-bifrost" target="_blank" rel="noopener">GitHub</a></li>
-                </ul>
-            </nav>
-
-            <nav class="footer__nav">
-                <h4>Protocols</h4>
-                <ul>
-                    <li><a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp-now.html"
-                            target="_blank">ESP-NOW</a></li>
-                    <li><a href="https://mqtt.org/documentation" target="_blank">MQTT</a></li>
-                    <li><a href="https://lora-alliance.org" target="_blank">LoRa</a></li>
-                    <li><a href="https://zigbeealliance.org" target="_blank">Zigbee</a></li>
-                </ul>
-            </nav>
-
-            <div class="footer__contact">
-                <h4>Connect</h4>
-                <ul class="social">
-                    <li><a href="https://twitter.com/yourhandle" aria-label="Twitter"><i
-                                class="fa-brands fa-x-twitter"></i></a></li>
-                    <li><a href="https://linkedin.com/company/yourcompany" aria-label="LinkedIn"><i
-                                class="fa-brands fa-linkedin-in"></i></a></li>
-                    <li><a href="mailto:contact@bifrost.io" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-                    </li>
-                </ul>
-                <address>
-                    <span>Bifrost Labs</span><br>
-                    Horizontina · Rio Grande do Sul · Brazil
-                </address>
-            </div>
-        </div>
-
-        <div class="footer__bottom">
-            <span>© 2025 Bifrost — MIT License</span>
-            <span class="footer__status">🚧 In active development</span>
-        </div>
-    </footer>
-
-    <script src="scripts/script.js"></script>
-    <script src="scripts/animations.js"></script>
-
 </body>
 
 </html>
