@@ -23,7 +23,6 @@ Seu propósito é criar um ecossistema unificado onde cada dispositivo — indep
 ---
 ## 📸 Screenshot
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/bd614a31-4af5-4511-8ce9-5759c8f16cea" />
-" />
 
 ---
 
